@@ -1,0 +1,44 @@
+version: 3
+
+env:
+  APIGEAR: apigear
+tasks:
+  clean:
+    cmds:
+      - rm -rf api-counter-cpp
+      - rm -rf api-counter-go
+      - rm -rf api-counter-py
+      - rm -rf api-counter-ts
+      - rm -rf api-counter-rs
+      - rm -rf api-counter-ue      
+  api-counter-cpp:
+    cmds:
+      - $APIGEAR gen sol api-counter-cpp.solution.yaml
+  api-counter-go:
+    cmds:
+      - $APIGEAR gen sol api-counter-go.solution.yaml
+  api-counter-py:
+    cmds:
+      - $APIGEAR gen sol api-counter-py.solution.yaml
+  api-counter-ts:
+    cmds:
+      - $APIGEAR gen sol api-counter-ts.solution.yaml
+  api-counter-rs:
+    cmds:
+      - $APIGEAR gen sol api-counter-rs.solution.yaml
+  api-counter-ue:
+    cmds:
+      - $APIGEAR gen sol api-counter-ue.solution.yaml
+  api-counter:
+    cmds:
+      - task api-counter-cpp
+      - task api-counter-go
+      - task api-counter-py
+      - task api-counter-ts
+      - task api-counter-rs
+      - task api-counter-ue
+  all:
+    cmds:
+      - task clean
+      - task api-counter
+

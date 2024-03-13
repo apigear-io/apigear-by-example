@@ -1,0 +1,8 @@
+features:
+  - name: api
+    scopes:
+      - match: module
+        documents:
+          - source: api.h.tpl
+            target: "{{snake .Module.Name}}.h"
+
