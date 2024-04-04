@@ -1,22 +1,13 @@
-module demo 1.0
+module demo
 
-enum Direction {
-    Up = 1
-    Down
-    Left
-    Right
-}
-
-struct Vector3D {
-    x: float64
-    y: float64
-    z: float64
-}
+@go.module: "demo/x"
+@go.name: "Vec3D"
+@cpp.namespace: "demo"
+@cpp.name: "Vector3D"
+@cpp.include: "x.h"
+extern Vector3D
 
 interface Counter {
-    count: int
-    position: Vector3D
-    direction: Direction
-    increment(step: int)
-    decrement()
+    pos: Vector3D
+    move(p: Vector3D)
 }
