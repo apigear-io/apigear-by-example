@@ -10,7 +10,7 @@ tasks:
       - rm -rf api-counter-py
       - rm -rf api-counter-ts
       - rm -rf api-counter-rs
-      - rm -rf api-counter-ue      
+      - rm -rf api-counter-ue
   api-counter-cpp:
     cmds:
       - $APIGEAR gen sol api-counter-cpp.solution.yaml
@@ -41,4 +41,3 @@ tasks:
     cmds:
       - task clean
       - task api-counter
-
