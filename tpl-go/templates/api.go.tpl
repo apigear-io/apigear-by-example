@@ -1,5 +1,14 @@
 package {{snake .Module.ShortName}}
 
+
+{{- range .Module.Externs }}
+// extern {{.Name}}
+{{ $import := .Meta.GetString "go.module" }}
+{{- if $import }}
+import "{{$import}}"
+{{- end }}
+{{- end }}
+
 {{- range .Module.Enums }}
 
 type {{Camel .Name}} int
@@ -12,6 +21,8 @@ const (
 )
 {{- end }}
 
+
+
 {{- range .Module.Structs }}
 
 type {{Camel .Name}} struct {
@@ -22,6 +33,10 @@ type {{Camel .Name}} struct {
 {{- end }}
 
 {{- range .Module.Interfaces }}
+
+{{- range .Properties }}
+var {{Camel .Name}} = {{goDefault "" .}}
+{{- end }}
 
 type I{{Camel .Name }} interface {
 {{- range .Properties }}

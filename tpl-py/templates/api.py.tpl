@@ -1,4 +1,12 @@
 from enum import Enum
+{{- range .Module.Externs }}
+{{ $x := pyExtern . }}
+{{- if $x.Import }}
+import {{ $x.Import }}
+{{- end }}
+{{- end }}
+
+
 {{- range .Module.Enums }}
 
 class {{Camel .Name}}(Enum):
@@ -6,6 +14,8 @@ class {{Camel .Name}}(Enum):
     {{Camel .Name}} = '{{.Name}}'
 {{- end }}
 {{- end }}
+
+
 
 {{- range .Module.Structs }}
 

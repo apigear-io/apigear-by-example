@@ -1,0 +1,9 @@
+externs:
+  - name: Vector3D
+    meta:
+      go.import: "demo/x"
+interfaces:
+  - name: Counter
+    properties:
+      - name: pos
+        type: Vector3D

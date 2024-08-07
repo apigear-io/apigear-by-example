@@ -1,22 +1,16 @@
-module demo 1.0
+module demo
 
-enum Direction {
-    Up = 1
-    Down
-    Left
-    Right
-}
-
-struct Vector3D {
-    x: float64
-    y: float64
-    z: float64
-}
+@go.module: "demo/x"
+@go.name: "Vec3D"
+@cpp.namespace: "demo"
+@cpp.include: "QtCore"
+@cpp.name: "QVector3D"
+@cpp.library: "qtcore"
+@py.import: "x"
+@py.name: "vec_3d"
+extern Vector3D
 
 interface Counter {
-    count: int
-    position: Vector3D
-    direction: Direction
-    increment(step: int)
-    decrement()
+    pos: Vector3D
+    move(p: Vector3D)
 }

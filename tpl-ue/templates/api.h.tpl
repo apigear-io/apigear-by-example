@@ -28,7 +28,7 @@ enum class E{{Camel .Module.ShortName}}{{Camel .Name}} : uint8
 USTRUCT(BlueprintType)
 struct {{Camel .Name}} {
   GENERATED_BODY()
-public:  
+public:
 {{- range .Fields }}
   UPROPERTY(BlueprintReadWrite, EditAnywhere)
   {{ueType "" .}} {{Camel .Name}};
@@ -38,16 +38,14 @@ public:
 {{- range .Module.Interfaces }}
 
 UINTERFACE(MinimalAPI)
-class U{{Camel .Name }} : public UInterface 
+class U{{Camel .Name }} : public UInterface
 {
   GENERATED_BODY()
 };
 
-
 class I{{Camel .Name }}
 {
   GENERATED_BODY()
-
 public:
 {{- range .Properties }}
   // {{.Name}}

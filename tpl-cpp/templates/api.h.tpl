@@ -2,6 +2,14 @@
 
 #include <functional>
 
+{{- range .Module.Externs }}
+{{ $x := cppExtern . }}
+{{- if $x.Include }}
+#include "{{$x.Include}}"
+{{- end }}
+{{- end }}
+
+
 {{- range .Module.Enums }}
 
 enum {{Camel .Name}}Enum {
@@ -20,6 +28,7 @@ struct {{Camel .Name}} {
 };
 {{- end }}
 {{- range .Module.Interfaces }}
+
 
 class I{{Camel .Name }} {
 public:
