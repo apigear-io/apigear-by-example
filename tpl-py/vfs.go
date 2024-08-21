@@ -2,8 +2,10 @@ package tplpy
 
 import _ "embed"
 
-//go:embed rules.yaml
-var RulesYaml []byte
-
-//go:embed templates/api.py.tpl
-var ApiTpl []byte
+var (
+	//go:embed rules.yaml
+	RulesYaml []byte
+	//go:embed templates/api.py.tpl
+	ApiTpl     []byte
+	ApiTplName = "api.py.tpl"
+)

@@ -2,8 +2,10 @@ package tplts
 
 import _ "embed"
 
-//go:embed rules.yaml
-var RulesYaml []byte
-
-//go:embed templates/api.ts.tpl
-var ApiTpl []byte
+var (
+	//go:embed rules.yaml
+	RulesYaml []byte
+	//go:embed templates/api.ts.tpl
+	ApiTpl     []byte
+	ApiTplName = "api.ts.tpl"
+)
