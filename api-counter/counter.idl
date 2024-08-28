@@ -1,16 +1,22 @@
 module demo
 
-@go.module: "demo/x"
-@go.name: "Vec3D"
-@cpp.namespace: "demo"
-@cpp.include: "QtCore"
-@cpp.name: "QVector3D"
-@cpp.library: "qtcore"
-@py.import: "x"
-@py.name: "vec_3d"
-extern Vector3D
+enum Direction {
+    North
+    South
+    East
+    West
+}
+
+struct Vector3D {
+    x: float
+    y: float
+    z: float
+}
 
 interface Counter {
-    pos: Vector3D
-    move(p: Vector3D)
+    count: int
+    msg: string
+    increment(step: int)
+    decrement(step: int)
+    signal reset()
 }

@@ -1,9 +1,16 @@
-externs:
-  - name: Vector3D
-    meta:
-      go.import: "demo/x"
+name: demo
+version: 1.0.0
 interfaces:
   - name: Counter
     properties:
-      - name: pos
-        type: Vector3D
+      - name: counter
+        type: int
+    operations:
+      - name: increment
+        params:
+          - name: step
+            type: int
+      - name: decrement
+        params:
+          - name: step
+            type: int
