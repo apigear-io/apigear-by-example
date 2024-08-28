@@ -4,5 +4,5 @@ targets:
     inputs:
       - api-counter/counter.idl
     output: api-counter-ts
-    template: tpl-ts
+    template: tplts
 
