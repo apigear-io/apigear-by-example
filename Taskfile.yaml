@@ -29,6 +29,10 @@ tasks:
   api-counter-ue:
     cmds:
       - $APIGEAR gen sol api-counter-ue.solution.yaml
+  api-counter-all:
+    cmds:
+      - $APIGEAR gen sol api-counter-all.solution.yaml
+
   api-counter:
     cmds:
       - task api-counter-cpp

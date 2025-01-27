@@ -1,19 +1,9 @@
 package {{snake .Module.ShortName}}
 
 
-{{- range .Module.Externs }}
-// extern {{.Name}}
-{{ $import := .Meta.GetString "go.module" }}
-{{- if $import }}
-import "{{$import}}"
-{{- end }}
-{{- end }}
-
 {{- range .Module.Enums }}
+{{- $enum := . }}
 
-type {{Camel .Name}} int
-
-{{ $enum := . }}
 const (
 {{- range .Members }}
     {{Camel $enum.Name}}{{Camel .Name}} = iota
@@ -34,20 +24,20 @@ type {{Camel .Name}} struct {
 
 {{- range .Module.Interfaces }}
 
-{{- range .Properties }}
-var {{Camel .Name}} = {{goDefault "" .}}
-{{- end }}
-
 type I{{Camel .Name }} interface {
 {{- range .Properties }}
-  // {{.Name}}
+  // {{.Name}} property
   Set{{Camel .Name}}({{goParam "" .}})
   Get{{Camel .Name}}() {{goReturn "" . }}
   On{{Camel .Name}}(cb func({{goType "" .}}))
 {{- end }}
 {{- range .Operations }}
-  // {{.Name}}
+  // {{.Name}} function
   {{Camel .Name}}({{goParams "" .Params}}) {{goReturn "" .Return}}
+{{- end }}
+{{- range .Signals }}
+  // {{.Name}} signal
+  On{{Camel .Name}}(cb func({{goParams "" .Params}}))
 {{- end }}
 };
 {{- end }}

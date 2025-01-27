@@ -1,0 +1,37 @@
+schema: apigear.solution/1.0
+targets:
+  - name: cpp
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-cpp
+    template: tplcpp
+  - name: go
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-go
+    template: tplgo
+  - name: java
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-java
+    template: tpljava
+  - name: py
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-py
+    template: tplpy
+  - name: rs
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-rs
+    template: tplrs
+  - name: ts
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-ts
+    template: tplts
+  - name: ue
+    inputs:
+      - api-counter/counter.idl
+    output: api-counter-ue
+    template: tplue

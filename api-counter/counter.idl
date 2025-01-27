@@ -7,16 +7,14 @@ enum Direction {
     West
 }
 
-struct Vector3D {
-    x: float
-    y: float
-    z: float
+struct Message {
+    text: string
 }
 
 interface Counter {
     count: int
-    msg: string
     increment(step: int)
     decrement(step: int)
-    signal reset()
+    signal reset(count: int)
+    say(msg: Message): Message
 }
