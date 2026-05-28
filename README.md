@@ -10,3 +10,7 @@ The examples are organized in the following way:
 
 - APIs - Examples of how to define and use APIs using YAML or IDL
 - Templates - Examples of how to define and use templates in the various supported languages
+
+## License
+
+Licensed under the [MIT License](./LICENSE). See [LICENSE](./LICENSE) for details.
